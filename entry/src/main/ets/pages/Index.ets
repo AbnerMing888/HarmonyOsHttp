@@ -1,6 +1,8 @@
 import { CacheType, Net, POST, ReturnDataType } from '@abner/http'
 import { ItemBean, ItemNews } from '../model/ItemNews'
 import { rcp } from '@kit.RemoteCommunicationKit'
+import promptAction from '@ohos.promptAction'
+import { ParamType } from '@abner/http/src/main/ets/config/ParamType'
 
 @Entry
 @Component
@@ -12,7 +14,7 @@ struct Index {
       "同步POST获取Json", "同步POST获取对象", "同步POST获取data层",
       "异步DELETE", "同步DELETE", "异步PUT", "同步PUT", "注解方式请求",
       "状态码配置", "设置缓存",
-      "设置拦截器", "请求带loading", "下载文件", "上传文件", "设置证书"
+      "设置拦截器", "请求带loading", "下载文件", "上传文件", "设置证书", "POST传递Body"
     ]
   @State selectPosition: number = -1
 
@@ -230,6 +232,16 @@ struct Index {
           .setParams(multiForm)
           .requestString(() => {
 
+          })
+        break
+      case 23: //证书
+
+        break
+      case 24: //post上传body
+        Net.post("http://10.47.16.124:8888/queryTest")
+          .setParams({"userName":"abner"},ParamType.RawDataContent)
+          .requestString((data) => {
+            console.log("=================" + data)
           })
         break
     }

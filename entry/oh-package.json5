@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@abner/http": "file:./libs/http-1.0.0.har"
+    "@abner/http": "file:./libs/http-1.0.1.har"
   }
 }
 
