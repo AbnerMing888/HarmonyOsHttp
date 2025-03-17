@@ -1,12 +1,12 @@
-# HarmonyOsHttp
+# HarmonyOSHttp
 
-**HarmonyOS网络库**，基于Remote Communication Kit（远场通信服务）封装而来，简化了请求方式，增加了常见的业务功能，支持同步、异步、装饰器模式，支持多种返回数据类型，Json、对象、数组，支持数据缓存，支持dialog加载，支持控制台请求信息格式化输出……
+**HarmonyOSHttp网络库**，基于Remote Communication Kit（远场通信服务）封装而来，简化了请求方式，增加了常见的业务功能，支持同步、异步、装饰器模式，支持多种返回数据类型，Json、对象、数组，支持数据缓存，支持dialog加载，支持控制台请求信息格式化输出……
 
 **如果你想使用基于http封装的网络库，可以点击直达：[net](https://ohpm.openharmony.cn/#/cn/detail/@abner%2Fnet)**
 
 ## 开发环境
 
-DevEco Studio NEXT Developer Beta1,Build Version: 5.0.3.900
+DevEco Studio NEXT Developer Beta1,Build Version: 5.0.7.200
 
 Api版本：**12**
 
@@ -15,7 +15,7 @@ modelVersion：5.0.0
 
 ## 主要功能点
 
-<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.1</span></i></p>
+<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.5</span></i></p>
 
 - 1、**支持全局初始化**
 - 2、 **支持统一的BaseUrl**
@@ -49,7 +49,7 @@ ohpm install @abner/http
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/http": "^1.0.1"}
+"dependencies": { "@abner/http": "^1.0.5"}
 ```
 
 ## 一、全局初始化
@@ -91,6 +91,7 @@ Net.getInstance().init({
 | loadingDialog          | WrappedBuilder\<[]\>     | 全局的dialog                                      |
 | closeLog               | boolean                  | 是否关闭日志                                         |
 | isLoadingUseMainWindow | boolean                  | 弹出的DialogLoading是否使用主window弹出，默认false不是        |
+| loglevel               | NetLogLevel              | 日志级别                                           |
 
 ### 设置请求头拦截
 
@@ -792,31 +793,10 @@ Net.getInstance().init({
 <p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/abner.jpg" width="150"></p>
 
 
-## 一对一指导【收费】
-
-每个人的时间都是宝贵的，做为开发者的我，已经做到了技术上的免费开源，但仍然有很多问题无法做到及时处理。
-也考虑到，鸿蒙是一个新的系统，大家在使用上会遇到各种各样的问题，也为了能够及时的解决及回复问题，大家可以付费进行一对一指导。
-
-### 开源库使用指导
-
-<p><img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/h_github_9.png" width="150px" /></p>
-
-**重要信息：一定要在付款时备注您的微信号，我会主动加您！切记！切记！！切记！！！**
-**诚信经营，来自一个北漂的老程序员心声！**
-
-**一杯饮料的钱，您可以获取权益如下**
-
-- 1、针对网络库使用1对1辅导使用，并跟踪相关问题排查。
-- 2、针对我的所有鸿蒙开源库，1对1辅导使用，并跟踪相关问题排查。
-- 3、涉及到我的开源库，您提的业务需求，率先第一时间满足，并及时针对性开发。
-- 4、未来我的鸿蒙开源库，可先遣体验。
-- 5、鸿蒙脚手架，正在研发中，可首批次体验使用。
-
-
 ## License
 
 ```
-Copyright (C) AbnerMing, HarmonyOsHttp Open Source Project
+Copyright (C) AbnerMing, HarmonyOSHttp Open Source Project
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -830,8 +810,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-
-
-
-

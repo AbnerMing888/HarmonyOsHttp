@@ -1,8 +1,10 @@
 import { CacheType, Net, POST, ReturnDataType } from '@abner/http'
 import { ItemBean, ItemNews } from '../model/ItemNews'
 import { rcp } from '@kit.RemoteCommunicationKit'
-import promptAction from '@ohos.promptAction'
 import { ParamType } from '@abner/http/src/main/ets/config/ParamType'
+import { DownloadTaskState } from '@abner/http/src/main/ets/model/DownloadTaskState'
+import { DataBean } from '../model/DataBean'
+import { TestBean } from '../model/TestBean'
 
 @Entry
 @Component
@@ -48,15 +50,12 @@ struct Index {
     this.selectPosition = position
     switch (position) {
       case 0: //异步GET获取Json 参数也可以直接拼接到接口的后面
-        Net.get("/cert/xx")
-          .setParams({
-            "index_type": -1,
-            "size": 1,
-          }).requestString((result) => {
-          console.log("===success：" + result)
-        }, (err) => {
-          console.log("===error：" + err.getMessage())
-        })
+        Net.get("https://wanandroid.com/popular/column/json")
+          .requestString((result) => {
+            console.log("===success：" + result)
+          }, (err) => {
+            console.log("===error：" + err.getMessage())
+          })
         break
       case 1: //异步GET获取对象
         Net.get("/cert/xx")
@@ -71,13 +70,8 @@ struct Index {
         })
         break
       case 2: //异步GET获取data层，支持对象或数组
-        Net.post("/cert/xx")
-          .setParams({
-            "index_type": -1,
-            "size": 1,
-          })
-          .setResultTag(["items"])//如果全局设置了，这里不用设置
-          .request<ItemBean[]>((result) => {
+        Net.post("popular/column/json")
+          .request<TestBean[]>((result) => {
             //result 就是 ItemBean[],直接获取data层
             console.log("===success：" + result.length)
           }, (err) => {
@@ -214,32 +208,38 @@ struct Index {
             console.log("===Progress==进度：" + receivedSize + "总的大小：" + totalSize)
           })
           .request((result) => {
-            console.log("===success:" + result)
+            if (result == DownloadTaskState.COMPLETE) {
+              console.log("===success:下载完成")
+            }
           }, (error) => {
             console.log("============" + JSON.stringify(error))
           })
         break
       case 22: //上传文件
         const multiForm = new rcp.MultipartForm({
-          "user_id": "abner_598251622603504",
-          "filename": {
+          "userid": "abner_598251622603504",
+          "file": {
             contentType: "image/png",
-            remoteFileName: "filename",
+            remoteFileName: "4b21763a6a7baa1b12c552378b2eb63a.png",
             contentOrPath: getContext().cacheDir + "/4b21763a6a7baa1b12c552378b2eb63a.png",
           }
         })
-        Net.post("https://www.xx.cn/xx")
-          .setParams(multiForm)
-          .requestString(() => {
 
+        Net.post("http://10.47.16.204/test/upload.php")
+          .setParams(multiForm, ParamType.UploadFromFile)
+          .setContext(getContext())
+          .setHeaders({ "Content-Type": "multipart/form-data" })
+          .requestString((data) => {
+            console.log("=================" + data)
           })
+
         break
       case 23: //证书
 
         break
       case 24: //post上传body
         Net.post("http://10.47.16.124:8888/queryTest")
-          .setParams({"userName":"abner"},ParamType.RawDataContent)
+          .setParams({ "userName": "abner" }, ParamType.RawDataContent)
           .requestString((data) => {
             console.log("=================" + data)
           })
