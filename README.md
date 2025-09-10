@@ -1,21 +1,26 @@
 # HarmonyOSHttp
 
+<p align="center">
+<img src="https://vipandroid-image.oss-cn-beijing.aliyuncs.com/harmony/abner.jpg" width="100px" /><br/>
+<span style="font-size:12px;color:red;">扫码关注，千帆起航，共筑鸿蒙！</span>
+</p>
+
 **HarmonyOSHttp网络库**，基于Remote Communication Kit（远场通信服务）封装而来，简化了请求方式，增加了常见的业务功能，支持同步、异步、装饰器模式，支持多种返回数据类型，Json、对象、数组，支持数据缓存，支持dialog加载，支持控制台请求信息格式化输出……
 
 **如果你想使用基于http封装的网络库，可以点击直达：[net](https://ohpm.openharmony.cn/#/cn/detail/@abner%2Fnet)**
 
 ## 开发环境
 
-DevEco Studio NEXT Developer Beta1,Build Version: 5.0.7.200
+DevEco Studio NEXT Developer Beta1,Build Version: 5.1.1.823
 
-Api版本：**12**
+Api版本：**>12**
 
 modelVersion：5.0.0
 
 
 ## 主要功能点
 
-<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.5</span></i></p>
+<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.7</span></i></p>
 
 - 1、**支持全局初始化**
 - 2、 **支持统一的BaseUrl**
@@ -49,7 +54,7 @@ ohpm install @abner/http
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/http": "^1.0.5"}
+"dependencies": { "@abner/http": "^1.0.7"}
 ```
 
 ## 一、全局初始化
