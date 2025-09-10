@@ -8,7 +8,16 @@ import { HttpInterceptor } from '@abner/http';
  * */
 export class GlobalInterceptor extends HttpInterceptor {
   async httpIntercept(context: rcp.RequestContext, next: rcp.RequestHandler): Promise<rcp.Response> {
-    const promise = await next.handle(context)
-    return promise
+    // const promise = await next.handle(context)
+    //自定义返回值
+    // let response: rcp.Response = {
+    //   request: context.request,
+    //   headers: promise.headers,
+    //   statusCode: promise.statusCode,
+    //   toString:()=>"{\"data\":[{\"chapterId\":0,\"chapterName\":\"\",\"columnId\":2,\"id\":26,\"name\":\"Kotlin\",\"subChapterId\":231,\"subChapterName\":\"\",\"url\":\"\",\"userId\":4943},{\"chapterId\":0,\"chapterName\":\"\",\"columnId\":2,\"id\":22,\"name\":\"自定义控件\",\"subChapterId\":37,\"subChapterName\":\"\",\"url\":\"\",\"userId\":4943},{\"chapterId\":0,\"chapterName\":\"\",\"columnId\":2,\"id\":32,\"name\":\"Jetpack\",\"subChapterId\":422,\"subChapterName\":\"\",\"url\":\"\",\"userId\":4943}],\"errorCode\":0,\"errorMsg\":\"\"}",
+    //   toJSON: () => null
+    // }
+    // return Promise.resolve(response)
+    return next.handle(context)
   }
 }

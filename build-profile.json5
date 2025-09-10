@@ -1,7 +1,19 @@
 {
   "app": {
     "signingConfigs": [
-
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsHttp_g7f1cnPh0TuE3nu3S6R42BYeiUoybooJw6Rcfe7tmB4=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BB4B8B70AE58185EF8AC802C82FCCCD8269C3177EC995CA85713430DB507E1F4E90E73D67F04CDF",
+          "profile": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsHttp_g7f1cnPh0TuE3nu3S6R42BYeiUoybooJw6Rcfe7tmB4=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\GW00261583\\.ohos\\config\\default_HarmonyOsHttp_g7f1cnPh0TuE3nu3S6R42BYeiUoybooJw6Rcfe7tmB4=.p12",
+          "storePassword": "0000001B5C43DF4E4FFFC9096BBC211FA39EDE53A8DE69DA6A172CF65FC88BE1F7D83BCA2871DA61028131"
+        }
+      }
     ],
     "products": [
       {
@@ -19,7 +31,7 @@
     ],
     "buildModeSet": [
       {
-        "name": "debug",
+        "name": "debug"
       },
       {
         "name": "release"
@@ -38,6 +50,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "http",
+      "srcPath": "./http",
     }
   ]
 }

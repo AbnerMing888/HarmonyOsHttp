@@ -1,6 +1,6 @@
-import AbilityStage from "@ohos.app.ability.AbilityStage";
-import { Net, NetLogLevel } from "@abner/http";
-import { GlobalInterceptor } from "../interceptor/GlobalInterceptor";
+import AbilityStage from '@ohos.app.ability.AbilityStage';
+import { Net } from '@abner/http';
+import { GlobalInterceptor } from '../interceptor/GlobalInterceptor';
 
 
 export default class App extends AbilityStage {

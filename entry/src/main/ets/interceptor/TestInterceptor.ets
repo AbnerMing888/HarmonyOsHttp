@@ -1,5 +1,5 @@
 import { rcp } from '@kit.RemoteCommunicationKit';
-import { HttpInterceptor } from 'http';
+import { HttpInterceptor } from '@abner/http';
 
 /**
  * AUTHOR:AbnerMing

@@ -1,4 +1,4 @@
-import { CacheType, Net, POST, ReturnDataType } from '@abner/http'
+import { CacheType, GET, HttpOptions, Net, POST, ReturnDataType } from '@abner/http'
 import { ItemBean, ItemNews } from '../model/ItemNews'
 import { rcp } from '@kit.RemoteCommunicationKit'
 import { ParamType } from '@abner/http/src/main/ets/config/ParamType'
@@ -50,7 +50,7 @@ struct Index {
     this.selectPosition = position
     switch (position) {
       case 0: //异步GET获取Json 参数也可以直接拼接到接口的后面
-        Net.get("https://wanandroid.com/popular/column/json")
+        Net.get("/popular/column/json")
           .requestString((result) => {
             console.log("===success：" + result)
           }, (err) => {
@@ -89,6 +89,7 @@ struct Index {
         break
       case 6: //异步POST获取Json
         Net.post("/cert/xx")
+          .setParams("", ParamType.Form)
           .setParams({
             "index_type": -1,
             "size": 1,
@@ -235,7 +236,7 @@ struct Index {
 
         break
       case 23: //证书
-
+        this.annotate2()
         break
       case 24: //post上传body
         Net.post("http://10.47.16.124:8888/queryTest")
@@ -321,15 +322,33 @@ struct Index {
 
   //注解方式
   async annotate() {
-    let result = await this.test()
+    let result = await this.testParams({ baseUrl: "https://wanandroid.com", isReturnJson: true })
     console.log("===success:" + result)
   }
 
+  @GET("/popular/wenda/json")
+  testParams(data?: HttpOptions): Promise<string> | undefined {
+    return undefined
+  }
+
+  async annotate2() {
+    let result = await this.testParams2({ baseUrl: "https://www.vipandroid.com", isReturnJson: true })
+    console.log("===success:" + result)
+  }
+
+  @GET("/popular/wenda/json")
+  testParams2(data?: HttpOptions): Promise<string> | undefined {
+    return undefined
+  }
+
   @POST("/cert/xx",{
+    baseUrl: "http://www.baidu.com",
     params: {
       "index_type": -1,
       "size": 1,
-    }, isReturnJson: true, isShowLoading: true
+    },
+    isReturnJson: true,
+    isShowLoading: true
   })
   test(): Promise<string> | undefined {
     return undefined
