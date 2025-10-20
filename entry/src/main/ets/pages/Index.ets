@@ -16,7 +16,8 @@ struct Index {
       "同步POST获取Json", "同步POST获取对象", "同步POST获取data层",
       "异步DELETE", "同步DELETE", "异步PUT", "同步PUT", "注解方式请求",
       "状态码配置", "设置缓存",
-      "设置拦截器", "请求带loading", "下载文件", "上传文件", "设置证书", "POST传递Body"
+      "设置拦截器", "请求带loading", "下载文件", "上传文件", "设置证书", "POST传递Body", "上传Stream"
+      , "下载Stream"
     ]
   @State selectPosition: number = -1
 
@@ -243,6 +244,21 @@ struct Index {
           .setParams({ "userName": "abner" }, ParamType.RawDataContent)
           .requestString((data) => {
             console.log("=================" + data)
+          })
+        break
+      case 25: //上传Stream
+
+        Net.UpLoadFromStream("")
+        //.setUploadFrom(s)//自行定义 rcp.Stream | rcp.ReadStream | rcp.SyncReadStream
+          .request((response) => {
+
+          })
+        break
+      case 26: //下载Stream
+        Net.downLoadToStream("")
+        // .setStream()
+          .request((response) => {
+
           })
         break
     }

@@ -13,14 +13,14 @@
 
 DevEco Studio NEXT Developer Beta1,Build Version: 5.1.1.823
 
-Api版本：**>12**
+Api版本：**>=12**
 
 modelVersion：5.0.0
 
 
 ## 主要功能点
 
-<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.7</span></i></p>
+<p align="center">当前版本：<i><span style="color:#ff0000;">1.0.8</span></i></p>
 
 - 1、**支持全局初始化**
 - 2、 **支持统一的BaseUrl**
@@ -56,7 +56,7 @@ ohpm install @abner/http
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/http": "^1.0.7"}
+"dependencies": { "@abner/http": "^1.0.8"}
 ```
 
 ## 一、全局初始化
@@ -708,6 +708,16 @@ Net.post("https://www.xx.cn/xx")
   })
 ```
 
+输入流进行上传
+
+```typescript
+  Net.UpLoadFromStream("")
+//.setUploadFrom(s)//自行定义 rcp.Stream | rcp.ReadStream | rcp.SyncReadStream
+  .request((response) => {
+
+  })
+```
+
 ### 2、下载文件
 
 ```typescript
@@ -720,6 +730,16 @@ Net.post("https://www.xx.cn/xx")
     console.log("===success:" + result)
   }, (error) => {
     console.log("============" + JSON.stringify(error))
+  })
+```
+
+将请求文件从服务器中下载到客户端，并将其写入到一个数据流中
+
+```typescript
+   Net.downLoadToStream("")
+// .setStream()
+  .request((response) => {
+
   })
 ```
 
