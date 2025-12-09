@@ -3,7 +3,6 @@ import { ItemBean, ItemNews } from '../model/ItemNews'
 import { rcp } from '@kit.RemoteCommunicationKit'
 import { ParamType } from '@abner/http/src/main/ets/config/ParamType'
 import { DownloadTaskState } from '@abner/http/src/main/ets/model/DownloadTaskState'
-import { DataBean } from '../model/DataBean'
 import { TestBean } from '../model/TestBean'
 
 @Entry
