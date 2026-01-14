@@ -17,7 +17,7 @@ Api版本：**>=12**
 
 ## 主要功能点
 
-<p align="center">当前版本：<i><span style="color:#ff0000;">1.1.0</span></i></p>
+<p align="center">当前版本：<i><span style="color:#ff0000;">1.1.1</span></i></p>
 
 - 1、**支持全局初始化**
 - 2、 **支持统一的BaseUrl**
@@ -53,7 +53,7 @@ ohpm install @abner/http
 方式二：在工程的oh-package.json5中设置三方包依赖，配置示例如下：
 
 ```
-"dependencies": { "@abner/http": "^1.1.0"}
+"dependencies": { "@abner/http": "^1.1.1"}
 ```
 
 ## 一、全局初始化
@@ -378,6 +378,7 @@ CONNECT
 | setCacheType              | CacheType                     | 缓存类型，NO_NETWORK_READ_CACHE:无网络下直接读取缓存,FIRST_REMOTE：先请求网络，请求网络失败后再加载缓存，FIRST_CACHE：先加载缓存，缓存没有再去请求网络， CACHE_AND_REMOTE：先使用缓存，不管是否存在，仍然请求网络，会回调两次，CACHE_AND_REMOTE_DISTINCT：先使用缓存，不管是否存在，仍然请求网络，先把缓存回调，等网络请求回来发现数据是一样的就不会再返回，否则再返回 |
 | setPrecisionKeys          | string[]                      | 处理精度参数，传递字段即可                                                                                                                                                                                                                   |
 | showDialogLoading         | 无参                            | 显示loading                                                                                                                                                                                                                       |
+| setInterceptResult        | boolean                       | 同步请求是否拦截返回参数，设置后，再有错误时之间走错误，不会返回数据                                                                                                                                                                                              |
 
 代码调用如下：
 
