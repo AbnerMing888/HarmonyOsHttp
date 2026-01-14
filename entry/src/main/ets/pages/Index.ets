@@ -50,7 +50,7 @@ struct Index {
     this.selectPosition = position
     switch (position) {
       case 0: //异步GET获取Json 参数也可以直接拼接到接口的后面
-        Net.get("/popular/column/json")
+        Net.get("/xx")
           .requestString((result) => {
             console.log("===success：" + result)
           }, (err) => {
@@ -266,11 +266,8 @@ struct Index {
   async awaitData(type: number) {
     switch (type) {
       case 3: //同步GET获取Json 参数也可以直接拼接到接口的后面
-        let result = await Net.get("/cert/xx")
-          .setParams({
-            "index_type": -1,
-            "size": 1,
-          }).returnData<string>(ReturnDataType.STRING)
+        let result = await Net.get("xx")
+          .returnData<string>(ReturnDataType.STRING)
 
         console.log("===success:" + result)
         break
@@ -356,7 +353,7 @@ struct Index {
     return undefined
   }
 
-  @POST("/cert/xx",{
+  @POST("/cert/xx", {
     baseUrl: "http://www.baidu.com",
     params: {
       "index_type": -1,

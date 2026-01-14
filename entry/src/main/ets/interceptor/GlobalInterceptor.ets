@@ -1,5 +1,5 @@
 import { rcp } from '@kit.RemoteCommunicationKit';
-import { HttpInterceptor } from '@abner/http';
+import { HttpInterceptor, Net, NetError } from '@abner/http';
 
 /**
  * AUTHOR:AbnerMing
@@ -8,8 +8,6 @@ import { HttpInterceptor } from '@abner/http';
  * */
 export class GlobalInterceptor extends HttpInterceptor {
   async httpIntercept(context: rcp.RequestContext, next: rcp.RequestHandler): Promise<rcp.Response> {
-
-
     // const promise = await next.handle(context)
     //自定义返回值
     // let response: rcp.Response = {
